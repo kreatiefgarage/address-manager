@@ -1,5 +1,6 @@
 package com.sap.cloud.s4hana.examples.addressmgr.commands;
 
+import com.sap.cloud.sdk.odatav2.connectivity.ODataUpdateResult;
 import org.slf4j.Logger;
 
 import com.sap.cloud.sdk.cloudplatform.logging.CloudLoggerFactory;
@@ -18,7 +19,8 @@ public class UpdateAddressCommand {
     }
 
     public Integer execute() throws Exception {
-        // TODO: Replace with Virtual Data Model query
-        return null;
+
+        ODataUpdateResult oDataUpdateResult = service.updateBusinessPartnerAddress(addressToUpdate).execute();
+        return oDataUpdateResult.getHttpStatusCode();
     }
 }
