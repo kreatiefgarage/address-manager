@@ -21,8 +21,11 @@ public class GetAllBusinessPartnersCommand {
     }
 
     public List<BusinessPartner> execute() throws Exception {
-        // TODO: Replace with Virtual Data Model query
-        return null;
+        return service.getAllBusinessPartner()
+                .select(BusinessPartner.BUSINESS_PARTNER, BusinessPartner.LAST_NAME, BusinessPartner.FIRST_NAME)
+                .filter(BusinessPartner.BUSINESS_PARTNER_CATEGORY.eq(CATEGORY_PERSON))
+                .orderBy(BusinessPartner.LAST_NAME, Order.ASC)
+                .execute();
     }
 
 }

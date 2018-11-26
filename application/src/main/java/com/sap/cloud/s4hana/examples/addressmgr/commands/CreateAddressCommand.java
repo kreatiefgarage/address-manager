@@ -18,7 +18,6 @@ public class CreateAddressCommand {
     }
 
     public BusinessPartnerAddress execute() throws Exception {
-        // TODO: Replace with Virtual Data Model query
-        return null;
+        return service.createBusinessPartnerAddress(addressToCreate).execute();
     }
 }
